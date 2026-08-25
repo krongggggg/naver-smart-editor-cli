@@ -1,0 +1,8 @@
+{
+  "description": "Example script — read-only steps for safe testing",
+  "steps": [
+    { "action": "getTitle" },
+    { "action": "getContent" },
+    { "action": "focus", "compType": "text" }
+  ]
+}

@@ -1,0 +1,198 @@
+/**
+ * Naver Smart Editor ONE module definitions
+ * Derived from live CDP analysis of PostWriteForm.naver
+ */
+export const EDITOR_APP_ID = 'blogpc001';
+
+export const DOCUMENT_TOOLBAR = {
+  image: {
+    dataName: 'image',
+    label: '사진',
+    selector: '[data-name="image"]',
+    type: 'basic',
+    description: '로컬 이미지 파일 업로드',
+    command: 'insertImagesByFile',
+  },
+  'social-media-image': {
+    dataName: 'social-media-image',
+    label: 'MYBOX',
+    selector: '[data-name="social-media-image"]',
+    type: 'basic',
+    description: 'MYBOX/소셜 미디어 이미지',
+  },
+  video: {
+    dataName: 'video',
+    label: '동영상',
+    selector: '[data-name="video"]',
+    type: 'basic',
+    description: '동영상 업로드/삽입',
+  },
+  sticker: {
+    dataName: 'sticker',
+    label: '스티커',
+    selector: '[data-name="sticker"]',
+    type: 'toggle',
+    description: '스티커 패널 열기',
+  },
+  quotation: {
+    dataName: 'insert-quotation',
+    label: '인용구',
+    selector: '[data-name="insert-quotation"]',
+    type: 'select',
+    description: '인용구 블록 삽입',
+    variants: ['default', 'quotation_line', 'quotation_bubble', 'quotation_underline', 'quotation_postit', 'quotation_corner'],
+  },
+  'horizontal-line': {
+    dataName: 'insert-horizontal-line',
+    label: '구분선',
+    selector: '[data-name="insert-horizontal-line"]',
+    type: 'select',
+    description: '구분선 삽입',
+  },
+  oglink: {
+    dataName: 'oglink',
+    label: '링크',
+    selector: '[data-name="oglink"]',
+    type: 'basic',
+    description: 'OG 링크 카드 삽입',
+  },
+  file: {
+    dataName: 'file',
+    label: '파일',
+    selector: '[data-name="file"]',
+    type: 'basic',
+    description: '파일 첨부',
+  },
+  schedule: {
+    dataName: 'schedule',
+    label: '일정',
+    selector: '[data-name="schedule"]',
+    type: 'basic',
+    description: '일정 컴포넌트 삽입',
+  },
+  code: {
+    dataName: 'code',
+    label: '소스코드',
+    selector: '[data-name="code"]',
+    type: 'basic',
+    description: '코드 블록 삽입',
+  },
+  table: {
+    dataName: 'table',
+    label: '표',
+    selector: '[data-name="table"]',
+    type: 'basic',
+    description: '표 삽입',
+  },
+  formula: {
+    dataName: 'formula',
+    label: '수식',
+    selector: '[data-name="formula"]',
+    type: 'basic',
+    description: 'LaTeX 수식 삽입',
+  },
+  map: {
+    dataName: 'map',
+    label: '장소',
+    selector: '[data-name="map"]',
+    type: 'basic',
+    description: '지도/장소 삽입',
+  },
+  'shopping-connect': {
+    dataName: 'shopping-connect',
+    label: '쇼핑커넥트',
+    selector: '[data-name="shopping-connect"]',
+    type: 'basic',
+    description: '쇼핑커넥트 상품 첨부',
+  },
+  search: {
+    dataName: 'search',
+    label: '글감',
+    selector: '[data-name="search"]',
+    type: 'toggle',
+    description: '글감 검색 패널',
+  },
+  moment: {
+    dataName: 'moment',
+    label: '내 클립',
+    selector: '[data-name="moment"]',
+    type: 'toggle',
+    description: '내 클립 패널',
+  },
+  library: {
+    dataName: 'library',
+    label: '라이브러리',
+    selector: '[data-name="library"]',
+    type: 'toggle',
+    description: '라이브러리 패널',
+  },
+  template: {
+    dataName: 'template',
+    label: '템플릿',
+    selector: '[data-name="template"]',
+    type: 'toggle',
+    description: '템플릿 패널',
+  },
+};
+
+export const PROPERTY_TOOLBAR = {
+  'text-format': { dataName: 'text-format', label: '본문 서식', method: 'changeTextFormat' },
+  'font-family': { dataName: 'font-family', label: '글꼴', method: 'updateStyle' },
+  'font-size': { dataName: 'font-size', label: '글자 크기', method: 'updateStyle' },
+  bold: { dataName: 'bold', label: '굵게', method: 'toggleStyle', style: 'bold' },
+  italic: { dataName: 'italic', label: '기울임', method: 'toggleStyle', style: 'italic' },
+  underline: { dataName: 'underline', label: '밑줄', method: 'toggleStyle', style: 'underline' },
+  strikethrough: { dataName: 'strikethrough', label: '취소선', method: 'toggleStyle', style: 'strikethrough' },
+  'font-color': { dataName: 'font-color', label: '글자색', method: 'updateStyle' },
+  'background-color': { dataName: 'background-color', label: '배경색', method: 'updateStyle' },
+  align: { dataName: 'align', label: '정렬', method: 'changeAllComponentsAlign' },
+  'line-height': { dataName: 'line-height', label: '줄간격', method: 'updateStyle' },
+  list: { dataName: 'list', label: '목록', method: 'convertToList' },
+  'drop-cap': { dataName: 'drop-cap', label: '드롭캡', method: 'toggleStyle', style: 'dropCap' },
+  superscript: { dataName: 'superscript', label: '위첨자', method: 'toggleStyle', style: 'superscript' },
+  subscript: { dataName: 'subscript', label: '아래첨자', method: 'toggleStyle', style: 'subscript' },
+  'special-letter': { dataName: 'special-letter', label: '특수문자', method: null },
+  'text-link': { dataName: 'text-link', label: '텍스트 링크', method: 'changeLink' },
+  speller: { dataName: 'speller', label: '맞춤법', method: null },
+};
+
+export const COMMANDS = {
+  INSERT_COMPONENTS: 'insertComponents',
+  PREPEND_COMPONENTS: 'prependComponents',
+  APPEND_COMPONENTS: 'appendComponents',
+  DELETE_COMPONENTS: 'deleteComponents',
+  INSERT_IMAGES: 'insertImages',
+  INSERT_IMAGE_FILES: 'insertImagesByFile',
+  INSERT_IMAGE_URLS: 'insertImagesByUrl',
+};
+
+export const COMPONENT_TYPES = [
+  'documentTitle',
+  'text',
+  'image',
+  'video',
+  'oglink',
+  'quotation',
+  'horizontalLine',
+  'table',
+  'code',
+  'file',
+  'schedule',
+  'map',
+  'sticker',
+  'formula',
+  'sectionTitle',
+  'product',
+  'buyWithMyOwnMoney',
+];
+
+export const SELECTORS = {
+  mainFrame: '#mainFrame',
+  canvas: '.se-canvas',
+  title: '.se-title-text, .se-module.se-title-text',
+  textParagraph: '.se-text-paragraph',
+  component: '.se-component',
+  publishBtn: '.publish_btn__m9KHH, [class*="publish_btn"]',
+  saveBtn: '.save_btn__bzc5B, [class*="save_btn"]',
+  category: '.se-flayer-unified-category-dropdown',
+};

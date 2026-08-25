@@ -1,0 +1,52 @@
+{
+  "analyzedAt": "2026-08-24",
+  "editorVersion": "2.10.2",
+  "editorName": "Smart Editor ONE (SE ONE)",
+  "entryPoint": {
+    "global": "window.SE.launcher",
+    "appId": "blogpc001",
+    "getEditor": "SE.launcher.getEditor('blogpc001')"
+  },
+  "iframeStructure": {
+    "outerPage": "blog.naver.com/{blogId}?Redirect=Write&categoryNo={n}",
+    "mainFrame": "#mainFrame → PostWriteForm.naver?blogId=...",
+    "editorRoot": ".se-canvas"
+  },
+  "internalServices": {
+    "_documentService": {
+      "methods": ["getDocumentTitle", "setDocumentTitle", "getContentText", "getDocumentData", "setDocumentData", "getComponentsByCtype", "getFocusedComponent"]
+    },
+    "_editingService": {
+      "methods": ["write", "writeSpecialCharacter", "lineBreak", "softLineBreak", "insert", "append", "eraseBlock"]
+    },
+    "_commandManager": {
+      "methods": ["execCommand", "getCommand", "addCommand"],
+      "commands": ["insertComponents", "prependComponents", "appendComponents", "deleteComponents", "insertImages", "insertImagesByFile", "insertImagesByUrl"]
+    },
+    "_propertyChangeService": {
+      "methods": ["toggleStyle", "updateStyle", "changeTextFormat", "changeAllComponentsAlign", "changeLink", "convertToList"]
+    },
+    "_papyrus": {
+      "description": "Core editor framework (MobX stores, virtual editable, hotkeys)",
+      "stores": ["_componentListStore", "_selectionInfoStore", "_editorStatusStore"]
+    }
+  },
+  "documentModel": {
+    "version": "2.10.2",
+    "componentTypes": ["documentTitle", "text", "image", "video", "oglink", "quotation", "horizontalLine", "table", "code", "file", "schedule", "map", "sticker", "formula", "sectionTitle", "product", "buyWithMyOwnMoney"],
+    "textNodeCtype": "textNode",
+    "paragraphCtype": "paragraph"
+  },
+  "toolbarStrategy": {
+    "documentToolbar": "Click [data-name] buttons in .se-document-toolbar",
+    "propertyToolbar": "Click [data-name] buttons in .se-property-toolbar OR use _propertyChangeService",
+    "selectType": "insert-quotation, insert-horizontal-line have variant dropdowns"
+  },
+  "cliMapping": {
+    "library": "src/index.js → connect()",
+    "editor": "src/editor/smart-editor.js",
+    "modules": "src/modules/index.js",
+    "cli": "bin/smart-editor.js",
+    "scriptRunner": "scripts/run-script.js"
+  }
+}

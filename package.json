@@ -1,0 +1,27 @@
+{
+  "name": "naver-smart-editor-cli",
+  "version": "0.1.0",
+  "description": "CLI to control Naver Blog Smart Editor via Chrome DevTools Protocol",
+  "type": "module",
+  "bin": {
+    "smart-editor": "./bin/smart-editor.js"
+  },
+  "scripts": {
+    "analyze": "node scripts/analyze-editor.js",
+    "probe": "node scripts/probe-api.js",
+    "test": "node --test --test-concurrency=1 test/*.test.js",
+    "test:e2e": "node --test test/e2e.test.js",
+    "run-script": "node scripts/run-script.js"
+  },
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "puppeteer-core": "^25.8.0",
+    "ws": "^8.21.3"
+  }
+}
