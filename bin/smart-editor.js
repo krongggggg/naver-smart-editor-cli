@@ -3,7 +3,7 @@
  * Naver Smart Editor CLI
  * Usage: smart-editor <command> [options]
  *
- * Requires agent-browser autoconnect on CDP port (default 9223)
+ * Requires Chrome with CDP port open (default 9223)
  */
 import { connect } from '../src/index.js';
 import { DOCUMENT_TOOLBAR, PROPERTY_TOOLBAR, COMMANDS } from '../src/modules/definitions.js';
@@ -45,7 +45,7 @@ Usage:
   smart-editor publish config --json '{...}'   Configure popup (see README)
 
 Environment:
-  CDP_PORT=9223    Chrome DevTools port (agent-browser autoconnect)
+  CDP_PORT=9223    Chrome DevTools Protocol port
 
 Examples:
   smart-editor info

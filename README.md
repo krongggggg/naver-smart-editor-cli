@@ -2,13 +2,23 @@
 
 Chrome DevTools Protocol(CDP)로 **네이버 블로그 스마트 에디터 ONE**을 원격 제어하는 CLI/라이브러리입니다.
 
-`agent-browser autoconnect 9223`으로 연결된 Chrome에서 동작합니다.
+CDP 포트(기본 `9223`)가 열린 Chrome에서 동작합니다.
 
 ## 요구사항
 
 - Node.js 18+
-- agent-browser (또는 CDP 포트 9223이 열린 Chrome)
+- CDP 포트가 열린 Chrome (기본 `9223`, `CDP_PORT`로 변경 가능)
 - 네이버 블로그 글쓰기 페이지가 열려 있어야 함
+
+Chrome 실행 예시 (macOS):
+
+```bash
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome \
+  --remote-debugging-port=9223 \
+  --user-data-dir="$HOME/.chrome-smart-editor"
+```
+
+연결 확인: `curl -s http://127.0.0.1:9223/json/version`
 
 ## 설치
 
@@ -111,7 +121,7 @@ await disconnect();
 ## 아키텍처
 
 ```
-agent-browser (CDP :9223)
+Chrome (CDP :9223)
     └── blog.naver.com (page)
             └── #mainFrame → PostWriteForm.naver (iframe)
                     └── SE.launcher.getEditor('blogpc001')

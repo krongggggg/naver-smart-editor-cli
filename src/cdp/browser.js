@@ -1,7 +1,7 @@
 import puppeteer from 'puppeteer-core';
 
 /**
- * Connect to an existing Chrome instance via CDP (agent-browser autoconnect)
+ * Connect to an existing Chrome instance via CDP
  */
 export class BrowserConnection {
   constructor(options = {}) {

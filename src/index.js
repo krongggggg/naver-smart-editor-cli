@@ -4,7 +4,7 @@ import { PublishPopup } from './editor/publish-popup.js';
 import { EditorModules } from './modules/index.js';
 
 /**
- * Main entry point: connect to agent-browser and get Smart Editor handle
+ * Main entry point: connect to CDP Chrome and get Smart Editor handle
  */
 export async function connect(options = {}) {
   const conn = new BrowserConnection(options);
